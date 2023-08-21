@@ -3,9 +3,11 @@
 #define BN_PLATFORM_WINDOWS
 #define BN_BUILD_DLL
 
-#include <spdlog/spdlog.h>
 #include <memory>
+
+#include "spdlog/spdlog.h"
 #include "Banana/Core.h"
+#include "spdlog/fmt/ostr.h"
 
 
 namespace Banana

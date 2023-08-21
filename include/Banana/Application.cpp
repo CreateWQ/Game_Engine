@@ -1,9 +1,14 @@
+#include "bnpch.h"
 #include "Application.h"
+
+#include "Banana/Events/ApplicationEvent.h"
+#include "Banana/Log.h"
+
 
 namespace Banana {
 
-    Application::Application(/* args */)
-    {
+    Application::Application() {
+        m_Window = std::unique_ptr<Window>(Window::Create());
     }
 
     Application::~Application()
@@ -11,7 +16,12 @@ namespace Banana {
     }
 
     void Application::Run() {
-        while (true);
+        
+
+        while (m_Running) {
+            m_Window->OnUpdate();
+
+        }
     }
 
 }

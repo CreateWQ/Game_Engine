@@ -1,5 +1,4 @@
 #define BN_PLATFORM_WINDOWS
-#define _WIN32_WINDOWS
 
 #include <Banana.h>
 

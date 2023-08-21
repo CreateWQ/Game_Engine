@@ -16,6 +16,8 @@ namespace Banana {
         s_ClientLogger->set_level(spdlog::level::trace);
     }
 
-    std::shared_ptr<spdlog::logger> &Log::GetCoreLogger() { return s_CoreLogger; }
-    std::shared_ptr<spdlog::logger> &Log::GetClientLogger() { return s_ClientLogger; }
+    inline std::shared_ptr<spdlog::logger> &Log::GetCoreLogger() { return s_CoreLogger; }
+    inline std::shared_ptr<spdlog::logger> &Log::GetClientLogger() { return s_ClientLogger; }
+
+    
 }

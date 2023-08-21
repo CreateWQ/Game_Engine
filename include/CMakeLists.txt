@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0.0)
 
-set(INC_NAME include)
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/Debug)
+set(INC_NAME Banana)
+
 file(GLOB SOURCES "Banana/*.cpp")
 
 project(${INC_NAME} VERSION 0.0.1)

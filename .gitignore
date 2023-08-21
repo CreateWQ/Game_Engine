@@ -2,4 +2,7 @@
 .vscode/
 build/
 
+include/vendor/
+
 # Files
+*.lua

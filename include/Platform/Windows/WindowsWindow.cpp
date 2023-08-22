@@ -6,6 +6,7 @@
 #include "Banana/Events/MouseEvent.h"
 #include "Banana/Events/ApplicationEvent.h"
 
+
 namespace Banana {
 
     static bool s_GLFWInitialized = false;
@@ -43,6 +44,8 @@ namespace Banana {
 
         m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(m_Window);
+        int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+        BN_CORE_ASSERT(status, "Failed to initialize Glad!!");
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVsync(true);
 
@@ -52,6 +55,13 @@ namespace Banana {
             data.Height = height;
             
             WindowResizeEvent event(width, height);
+            data.EventCallback(event);
+        });
+            
+        glfwSetCharCallback(m_Window, [](GLFWwindow *window, unsigned int codepoint) {
+            WindowData &data = *(WindowData*)glfwGetWindowUserPointer(window);
+            
+            KeyTypedEvent event(codepoint);
             data.EventCallback(event);
         });
 
@@ -113,7 +123,7 @@ namespace Banana {
         glfwSetCursorPosCallback(m_Window, [](GLFWwindow *window, double xPos, double yPos) {
             WindowData &data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-            MouseMoveEvent event((float)xPos, (float)yPos);
+            MouseMovedEvent event((float)xPos, (float)yPos);
             data.EventCallback(event);
         });
     }

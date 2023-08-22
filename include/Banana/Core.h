@@ -17,4 +17,7 @@
     #define BN_ASSERT(x, ...)
     #define BN_CORE_ASSERT(x, ...) 
 #endif
+
 #define BIT(x) (1 << x)
+
+#define BN_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)

@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.0.0)
 set(INC_NAME Banana)
 set(INC_DIR ${${INC_NAME}_SOURCE_DIR})
 set(BANANA_DIR ${INC_DIR}/Banana)
-set(EVENTS_DIR ${BANANA_DIR}/Events)
 set(PLATFORM_DIR ${INC_DIR}/Platform)
 
 # add_definitions("-DBN_PLATFORM_WINDOWS")
@@ -14,9 +13,9 @@ include_directories(${BANANA_DIR})
 
 file(GLOB SOURCES 
     "${BANANA_DIR}/*.cpp" 
-    "${EVENTS_DIR}/*.cpp" 
-    "/*.cpp" 
-    "${PLATFORM_DIR}/Windows/*.cpp"
+    "${BANANA_DIR}/*/*.cpp" 
+    "*.cpp" 
+    "${PLATFORM_DIR}/*/*.cpp"
 )
 
 project(${INC_NAME} VERSION 0.0.1)
@@ -26,6 +25,7 @@ find_package(glm REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(glad CONFIG REQUIRED)
+find_package(ImGui REQUIRED)
 
 
 add_library(${INC_NAME} SHARED ${SOURCES})
@@ -43,3 +43,4 @@ target_link_libraries(${INC_NAME} PUBLIC glm::glm)
 target_link_libraries(${INC_NAME} PUBLIC GLEW::GLEW)
 target_link_libraries(${INC_NAME} PUBLIC glfw)
 target_link_libraries(${INC_NAME} PUBLIC glad::glad)
+target_link_libraries(${INC_NAME} PUBLIC imgui::imgui)

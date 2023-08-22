@@ -18,8 +18,10 @@ private:
     /* data */
 public:
     SandBox(/* args */) {
-        PushLayer(new ExampleLayer());
+        PushLayer(new Banana::ImGuiLayer());
+        PushOverlay(new ExampleLayer());
     }
+
     ~SandBox() {
 
     }

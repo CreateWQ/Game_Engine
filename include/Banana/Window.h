@@ -3,11 +3,14 @@
 #define BN_BUILD_DLL
 #define BN_PLATFORM_WINDOWS
 
+#define BN_ENABLE_ASSERTS 
 
 #include "bnpch.h"
 
 #include "Core.h"
 #include "Events/Event.h"
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 namespace Banana
 {
@@ -32,7 +35,7 @@ namespace Banana
         virtual ~Window() {}
         
         virtual void OnUpdate() = 0;
-
+        
         virtual unsigned int GetWidth() const = 0;
         virtual unsigned int GetHeight() const = 0;
 

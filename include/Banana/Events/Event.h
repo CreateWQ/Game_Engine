@@ -9,7 +9,7 @@ namespace Banana {
         None = 0,
         WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
         AppTick, AppUpdate, AppRender,
-        KeyPressed, KeyReleased,
+        KeyPressed, KeyReleased, KeyTyped,
         MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
     };
 
@@ -57,7 +57,7 @@ namespace Banana {
             : m_Event(event) {}
         
         template<typename T>
-        bool Dispath(EventFn<T> func) {
+        bool Dispatch(EventFn<T> func) {
             if (m_Event.GetEventType() == T::GetStaticType()) {
                 m_Event.m_Handled = func(*(T*)&m_Event);
                 return true;

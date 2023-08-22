@@ -24,7 +24,7 @@ namespace Banana {
 
         inline int GetRepeatCode() const { return m_RepeatCount; }
 
-        std::string ToString() {
+        std::string ToString() const override {
             std::stringstream ss;
             ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
             return ss.str();
@@ -47,5 +47,19 @@ namespace Banana {
         }
 
         EVENT_CLASS_TYPE(KeyReleased)
+    };
+
+    class BANANA_API KeyTypedEvent : public KeyEvent {  
+    public:
+        KeyTypedEvent(int keycode) 
+            : KeyEvent(keycode) {}
+
+        std::string ToString() const override {
+            std::stringstream ss;
+            ss << "KeyTypedEvent: " << m_KeyCode;
+            return ss.str();
+        };
+    
+        EVENT_CLASS_TYPE(KeyTyped);
     };
 }

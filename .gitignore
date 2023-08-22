@@ -1,8 +1,9 @@
 # Directories
 .vscode/
 build/
-
+OpenGL/
 include/vendor/
 
 # Files
 *.lua
+*.ini

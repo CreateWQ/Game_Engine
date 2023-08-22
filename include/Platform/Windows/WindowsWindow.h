@@ -32,8 +32,9 @@ namespace Banana {
         struct WindowData {
             std::string Title;
             unsigned int Width, Height;
-            EventCallbackFn EventCallback;
             bool Vsync;
+            
+            EventCallbackFn EventCallback;
         };
 
         WindowData m_Data;

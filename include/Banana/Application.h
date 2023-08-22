@@ -4,8 +4,10 @@
 #define BN_BUILD_DLL
 
 #include "Core.h"
-#include "Events/Event.h"
 #include "Window.h"
+#include "LayerStack.h"
+#include "Events/Event.h"
+#include "Banana/Events/ApplicationEvent.h"
 
 namespace Banana {
     
@@ -15,10 +17,17 @@ namespace Banana {
         virtual ~Application();
         
         void Run(); 
-    
+
+        void OnEvent(Event &e);
+
+        void PushLayer(Layer *layer);
+        void PushOverlay(Layer *overlay);
     private:
+        bool OnWindowClose(WindowCloseEvent &e);
+
         std::unique_ptr<Window> m_Window;
         bool m_Running = true;
+        LayerStack m_LayerStack;
     };
 
     // To be 

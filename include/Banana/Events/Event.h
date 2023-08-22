@@ -29,7 +29,7 @@ namespace Banana {
 
 #define EVENT_CLASS_CATEGORY(category) \
     virtual int GetCategoryFlags() const override { return category; }
-
+    // Interface catching the event of the app
     class BANANA_API Event {
     private:    
         friend class EventDispatcher;
@@ -42,6 +42,8 @@ namespace Banana {
         inline bool IsInCategory(EventCategory category) { 
             return GetCategoryFlags() & category;
         } 
+
+        inline bool GetHandled() const { return m_Handled; }
     protected:
         bool m_Handled = false;
     };

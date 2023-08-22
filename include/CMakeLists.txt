@@ -14,8 +14,8 @@ include_directories(${BANANA_DIR})
 
 file(GLOB SOURCES 
     "${BANANA_DIR}/*.cpp" 
-    "${EVENTS_DIR}*.cpp" 
-    "*.cpp" 
+    "${EVENTS_DIR}/*.cpp" 
+    "/*.cpp" 
     "${PLATFORM_DIR}/Windows/*.cpp"
 )
 
@@ -25,6 +25,7 @@ find_package(spdlog REQUIRED)
 find_package(glm REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(glfw3 REQUIRED)
+find_package(glad CONFIG REQUIRED)
 
 
 add_library(${INC_NAME} SHARED ${SOURCES})
@@ -41,3 +42,4 @@ target_link_libraries(${INC_NAME} PUBLIC spdlog::spdlog)
 target_link_libraries(${INC_NAME} PUBLIC glm::glm)
 target_link_libraries(${INC_NAME} PUBLIC GLEW::GLEW)
 target_link_libraries(${INC_NAME} PUBLIC glfw)
+target_link_libraries(${INC_NAME} PUBLIC glad::glad)

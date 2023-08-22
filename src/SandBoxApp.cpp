@@ -2,13 +2,23 @@
 
 #include <Banana.h>
 
+class ExampleLayer : public Banana::Layer {
+public:
+    ExampleLayer() 
+        : Layer("Example") {}
+
+    void OnUpdate() override { BN_INFO("ExampleLayer::Update"); }
+    void OnEvent(Banana::Event &e) override { BN_TRACE("{0}", e); }
+
+};
+
 class SandBox : public Banana::Application
 {
 private:
     /* data */
 public:
     SandBox(/* args */) {
-
+        PushLayer(new ExampleLayer());
     }
     ~SandBox() {
 

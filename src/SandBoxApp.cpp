@@ -7,7 +7,7 @@ public:
     ExampleLayer() 
         : Layer("Example") {}
 
-    void OnUpdate() override { BN_INFO("ExampleLayer::Update"); }
+    void OnUpdate() override { BN_TRACE("ExampleLayer::Update"); }
     void OnEvent(Banana::Event &e) override { BN_TRACE("{0}", e); }
 
 };
@@ -19,7 +19,7 @@ private:
 public:
     SandBox(/* args */) {
         PushLayer(new Banana::ImGuiLayer());
-        PushOverlay(new ExampleLayer());
+        PushLayer(new ExampleLayer());
     }
 
     ~SandBox() {

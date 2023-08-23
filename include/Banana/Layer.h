@@ -2,6 +2,7 @@
 
 #define BN_PLATFORM_WINDOWS
 #define BN_BUILD_DLL
+#define BN_DEBUG
 
 #include "Core.h"
 #include "Events/Event.h"

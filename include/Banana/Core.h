@@ -10,6 +10,10 @@
     #error Banana only support Windows!!
 #endif
 
+#ifdef BN_DEBUG 
+    #define BN_ENABLE_ASSERTS
+#endif
+
 #ifdef BN_ENABLE_ASSERTS
     #define BN_ASSERT(x, ...) { if(!(x)) {BN_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
     #define BN_CORE_ASSERT(x, ...) { if(!(x)) { BN_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }

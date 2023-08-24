@@ -2,11 +2,12 @@
 #include "WindowsInput.h"
 #include "Banana/Application.h"
 
+#include "Input.h"
 #include <GLFW/glfw3.h>
 
 namespace Banana {
 
-    Input* Input::s_Instance = new WindowsInput;
+    Input* Input::s_Instance = new WindowsInput();
     
     bool WindowsInput::IsKeyPressedImpl(int keycode) {
         auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());

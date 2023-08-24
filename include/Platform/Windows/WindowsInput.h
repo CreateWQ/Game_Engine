@@ -1,6 +1,6 @@
 #pragma once 
 
-#include "Banana/Input.h"
+#include "Input.h"
 
 namespace Banana {
 

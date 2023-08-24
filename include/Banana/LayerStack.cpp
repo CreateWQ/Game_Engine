@@ -1,8 +1,4 @@
 #include "LayerStack.h"
-#include <functional>
-        #include <iostream>
-        #include <numeric>
-        #include <vector>
 
 namespace Banana
 {

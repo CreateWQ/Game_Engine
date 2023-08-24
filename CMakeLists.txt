@@ -6,6 +6,9 @@ set(CMAKE_CXX_EXTENSIONS off)
 set(PROJ_NAME GameEngine)
 set(BananaLIB Banana)
 
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MD")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd")
+
 set(CMAKE_TOOLCHAIN_FILE "C:/src/vcpkg/scripts/buildsystems/vcpkg.cmake")
 file(GLOB src_SOURCES "src/*.cpp")
 project(${PROJ_NAME} VERSION 0.0.1)

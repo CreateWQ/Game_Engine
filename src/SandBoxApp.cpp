@@ -1,14 +1,18 @@
 #define BN_PLATFORM_WINDOWS
 
-#include <Banana.h>
+#include "Banana.h"
 
 class ExampleLayer : public Banana::Layer {
 public:
     ExampleLayer() 
         : Layer("Example") {}
 
-    void OnUpdate() override { BN_TRACE("ExampleLayer::Update"); }
-    void OnEvent(Banana::Event &e) override { BN_TRACE("{0}", e); }
+    void OnUpdate() override {
+        if (Banana::Input::IsKeyPressed(BN_KEY_TAB))
+            BN_TRACE("Tab key is pressed!");
+        
+    }
+    void OnEvent(Banana::Event &e) override { /* BN_TRACE("{0}", e); */ }
 
 };
 
